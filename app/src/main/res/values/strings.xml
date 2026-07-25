@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">NBA_NAAC_EMS</string>
+    <string-array name="type_array">
+        <item>Select Type</item>
+        <item>Technical</item>
+        <item>Academic</item>
+        <item>Research</item>
+        <item>Internship</item>
+        <item>Placement</item>
+        <item>Certification</item>
+        <item>Sports</item>
+        <item>Cultural</item>
+        <item>Entrepreneurship</item>
+        <item>Social Service</item>
+    </string-array>
+    <string name="na_text">N/A</string>
+</resources>

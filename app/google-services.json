@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "109664087459",
+    "project_id": "nba-naac-ems",
+    "storage_bucket": "nba-naac-ems.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:109664087459:android:3aa6868e6a10ab51307e16",
+        "android_client_info": {
+          "package_name": "com.example.nba_naac_ems"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAvWx17zZBMZCkKaYhcfTi4xNb1XeoAoz8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

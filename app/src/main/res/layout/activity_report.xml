@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F8FAFC">
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/reportScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="80dp"
+        android:clipToPadding="false">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- HEADER -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:background="#1E3A8A"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="16dp">
+
+                <TextView
+                    android:id="@+id/backBtn"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:text="←"
+                    android:textColor="#FFFFFF"
+                    android:textSize="24sp"
+                    android:gravity="center"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="?attr/selectableItemBackgroundBorderless"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Reports &amp; Analytics"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:layout_marginEnd="40dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- 1. Report Filters Section (White Background) -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="#FFFFFF"
+                android:layout_marginBottom="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="REPORT FILTERS"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:textColor="#000000"
+                        android:letterSpacing="0.1"
+                        android:layout_marginBottom="12dp"/>
+
+                    <!-- Module Selection -->
+                    <GridLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:columnCount="2">
+                        <CheckBox android:id="@+id/checkStudents" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Student Achievements" android:checked="true" android:textSize="13sp" android:textColor="#000000"/>
+                        <CheckBox android:id="@+id/checkFaculty" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Faculty Achievements" android:checked="true" android:textSize="13sp" android:textColor="#000000"/>
+                        <CheckBox android:id="@+id/checkEvents" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Events" android:checked="true" android:textSize="13sp" android:textColor="#000000"/>
+                        <CheckBox android:id="@+id/checkEvidence" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Evidence Repository" android:checked="true" android:textSize="13sp" android:textColor="#000000"/>
+                    </GridLayout>
+
+                    <GridLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:columnCount="2"
+                        android:layout_marginTop="8dp">
+                        <Spinner android:id="@+id/deptSpinner" android:layout_width="0dp" android:layout_height="45dp" android:layout_columnWeight="1" android:layout_marginEnd="4dp" android:background="@drawable/spinner_bg"/>
+                        <Spinner android:id="@+id/yearSpinner" android:layout_width="0dp" android:layout_height="45dp" android:layout_columnWeight="1" android:layout_marginStart="4dp" android:background="@drawable/spinner_bg"/>
+                    </GridLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="8dp">
+                        <EditText android:id="@+id/fromDate" android:layout_width="0dp" android:layout_height="45dp" android:layout_weight="1" android:hint="From Date" android:focusable="false" android:clickable="true" android:background="@drawable/edittext_bg" android:padding="10dp" android:layout_marginEnd="4dp" android:textSize="13sp" android:textColor="#000000" android:textColorHint="#757575"/>
+                        <EditText android:id="@+id/toDate" android:layout_width="0dp" android:layout_height="45dp" android:layout_weight="1" android:hint="To Date" android:focusable="false" android:clickable="true" android:background="@drawable/edittext_bg" android:padding="10dp" android:layout_marginStart="4dp" android:textSize="13sp" android:textColor="#000000" android:textColorHint="#757575"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="16dp">
+                        <Button android:id="@+id/generateReportBtn" android:layout_width="match_parent" android:layout_height="50dp" android:text="Generate Report" android:backgroundTint="#2563EB" android:textColor="#FFFFFF" app:cornerRadius="8dp" android:textSize="14sp"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- 2. Report Summary Section -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="REPORT SUMMARY"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:letterSpacing="0.1"
+                android:layout_marginBottom="12dp"/>
+
+            <GridLayout
+                android:id="@+id/summaryGrid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="2"
+                android:layout_marginBottom="20dp">
+
+                <!-- Students -->
+                <LinearLayout
+                    android:id="@+id/cardStudents"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="4dp"
+                    android:background="@drawable/stats_card_bg_purple"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="🎓 Students" android:textColor="#6D28D9" android:textSize="12sp" android:textStyle="bold"/>
+                    <TextView android:id="@+id/sumStudents" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0" android:textSize="22sp" android:textStyle="bold" android:textColor="#6D28D9"/>
+                </LinearLayout>
+
+                <!-- Faculty -->
+                <LinearLayout
+                    android:id="@+id/cardFaculty"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="4dp"
+                    android:background="@drawable/stats_card_bg_green"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="👨‍🏫 Faculty" android:textColor="#16A34A" android:textSize="12sp" android:textStyle="bold"/>
+                    <TextView android:id="@+id/sumFaculty" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0" android:textSize="22sp" android:textStyle="bold" android:textColor="#16A34A"/>
+                </LinearLayout>
+
+                <!-- Events -->
+                <LinearLayout
+                    android:id="@+id/cardEvents"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="4dp"
+                    android:background="@drawable/stats_card_bg_orange"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="📅 Events" android:textColor="#EA580C" android:textSize="12sp" android:textStyle="bold"/>
+                    <TextView android:id="@+id/sumEvents" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0" android:textSize="22sp" android:textStyle="bold" android:textColor="#EA580C"/>
+                </LinearLayout>
+
+                <!-- Documents -->
+                <LinearLayout
+                    android:id="@+id/cardDocs"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="4dp"
+                    android:background="@drawable/stats_card_bg_blue"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="📁 Evidence" android:textColor="#2563EB" android:textSize="12sp" android:textStyle="bold"/>
+                    <TextView android:id="@+id/sumDocs" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0" android:textSize="22sp" android:textStyle="bold" android:textColor="#2563EB"/>
+                </LinearLayout>
+            </GridLayout>
+
+            <!-- 3. Achievement Analytics Section -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ACHIEVEMENT ANALYTICS"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:letterSpacing="0.1"
+                android:layout_marginBottom="12dp"/>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                app:cardBackgroundColor="#FFFFFF"
+                android:layout_marginBottom="20dp">
+                <LinearLayout
+                    android:id="@+id/analyticsChartContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+                    <!-- Dynamic Bars will appear here -->
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- 4. Detailed Breakdown Section -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="DETAILED BREAKDOWN"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:letterSpacing="0.1"
+                android:layout_marginBottom="12dp"/>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                app:cardBackgroundColor="#FFFFFF"
+                android:layout_marginBottom="20dp">
+                <LinearLayout
+                    android:id="@+id/detailBreakdownContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- 5. Top Insights Section -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TOP INSIGHTS"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:letterSpacing="0.1"
+                android:layout_marginBottom="12dp"/>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                app:cardBackgroundColor="#FFFFFF"
+                android:layout_marginBottom="20dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginBottom="10dp">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Student Achievement:" android:textColor="#000000" android:textSize="13sp"/>
+                        <TextView android:id="@+id/insightTopCategory" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="N/A" android:textColor="#000000" android:textStyle="bold" android:textSize="13sp"/>
+                    </LinearLayout>
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginBottom="10dp">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Faculty Achievement:" android:textColor="#000000" android:textSize="13sp"/>
+                        <TextView android:id="@+id/insightActiveModule" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="N/A" android:textColor="#000000" android:textStyle="bold" android:textSize="13sp"/>
+                    </LinearLayout>
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="📅 Latest Event:" android:textColor="#000000" android:textSize="13sp"/>
+                        <TextView android:id="@+id/insightLatestEvent" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="N/A" android:textColor="#000000" android:textStyle="bold" android:textSize="13sp"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- 6. PDF and Share Buttons at Bottom -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="30dp">
+                <Button android:id="@+id/downloadPdfBtn" android:layout_width="match_parent" android:layout_height="55dp" android:text="Download PDF Report" android:backgroundTint="#EF4444" android:textColor="#FFFFFF" app:cornerRadius="8dp" android:layout_marginBottom="8dp"/>
+                <Button android:id="@+id/shareReportBtn" android:layout_width="match_parent" android:layout_height="55dp" android:text="Share Report" android:backgroundTint="#64748B" android:textColor="#FFFFFF" app:cornerRadius="8dp"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>
+
+    <!-- Bottom Navigation -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_gravity="bottom"
+        android:background="#FFFFFF"
+        android:elevation="8dp"
+        android:orientation="horizontal"
+        android:weightSum="3">
+        <LinearLayout android:id="@+id/navHome" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:gravity="center" android:orientation="vertical" android:clickable="true" android:focusable="true" android:background="?attr/selectableItemBackground">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="🏠" android:textSize="20sp" android:textColor="#6B7280"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Home" android:textSize="12sp" android:textColor="#6B7280" android:textStyle="bold"/>
+        </LinearLayout>
+        <LinearLayout android:id="@+id/navEvidence" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:gravity="center" android:orientation="vertical" android:clickable="true" android:focusable="true" android:background="?attr/selectableItemBackground">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="📁" android:textSize="20sp" android:textColor="#6B7280"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Evidence" android:textSize="12sp" android:textColor="#6B7280" android:textStyle="bold"/>
+        </LinearLayout>
+        <LinearLayout android:id="@+id/navReports" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:gravity="center" android:orientation="vertical">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="📊" android:textSize="20sp" android:textColor="#1E3A8A"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Reports" android:textSize="12sp" android:textColor="#1E3A8A" android:textStyle="bold"/>
+            <View
+                android:layout_width="40dp"
+                android:layout_height="3dp"
+                android:layout_marginTop="4dp"
+                android:background="#1E3A8A" />
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
