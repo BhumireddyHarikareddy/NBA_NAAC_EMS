@@ -40,9 +40,7 @@ public class StudentListActivity extends AppCompatActivity {
         backBtn = findViewById(R.id.backBtn);
         listContainer = findViewById(R.id.listContainer);
 
-        // Manually specifying the database URL to fix connection issues
-        databaseRef = FirebaseDatabase.getInstance("https://nba-naac-ems-default-rtdb.firebaseio.com/")
-                .getReference("StudentAchievements");
+        databaseRef = FirebaseDatabase.getInstance().getReference("StudentAchievements");
 
         backBtn.setOnClickListener(v -> finish());
         addBtn.setOnClickListener(v -> startActivity(new Intent(StudentListActivity.this, StudentAchievementActivity.class)));

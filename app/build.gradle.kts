@@ -1,3 +1,5 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
     id("com.google.gms.google-services")
@@ -11,6 +13,17 @@ android {
         }
     }
 
+    buildFeatures {
+        buildConfig = true
+    }
+
+    val properties = Properties()
+    val propertiesFile = project.rootProject.file("local.properties")
+    if (propertiesFile.exists()) {
+        properties.load(propertiesFile.inputStream())
+    }
+    val apiKey = properties.getProperty("FIREBASE_API_KEY") ?: ""
+
     defaultConfig {
         applicationId = "com.example.nba_naac_ems"
         minSdk = 24
@@ -19,6 +32,7 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField("String", "FIREBASE_API_KEY", "\"$apiKey\"")
     }
 
     buildTypes {
